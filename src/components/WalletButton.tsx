@@ -65,7 +65,7 @@ export function WalletButton() {
     return (
       <Button
         variant="outline"
-        className="hidden sm:inline-flex border-2 rounded-full hover:bg-[#A076F9] hover:text-white transition-colors cursor-pointer"
+        className="hidden sm:inline-flex border-2 rounded-full  transition-colors cursor-pointer"
         style={{ borderColor: "#A076F9", color: "#A076F9" }}
         onClick={login}
       >

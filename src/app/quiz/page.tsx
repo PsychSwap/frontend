@@ -1,4 +1,4 @@
-'use client';
+"use client";
 // QuizPage.tsx
 // Tinder-style quiz entry page with two options:
 // 1. Choose your archetype if you already know your MBTI
@@ -19,12 +19,13 @@ type Personality = {
   imagePath: string;
 };
 
-const personalities: Personality[] = [
+export const personalities: Personality[] = [
   {
     name: "The Chill Strategist",
     mbti: "ISFP",
     emoji: "🧊",
-    summary: "Sensitive but strategic, prefers harmony, makes measured crypto moves.",
+    summary:
+      "Sensitive but strategic, prefers harmony, makes measured crypto moves.",
     imagePath: "/personality_types/The_Chill_Strategist.png",
   },
   {
@@ -136,7 +137,9 @@ const personalities: Personality[] = [
 
 export default function QuizPage() {
   const [showAll, setShowAll] = useState(false);
-  const [centerIndex, setCenterIndex] = useState(Math.floor(personalities.length / 2)); // Start at center
+  const [centerIndex, setCenterIndex] = useState(
+    Math.floor(personalities.length / 2)
+  ); // Start at center
 
   // Helper to wrap index for infinite carousel
   function getWrappedIndex(idx: number) {
@@ -152,7 +155,8 @@ export default function QuizPage() {
           Discover Your DeFi Archetype
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mb-4 font-sans">
-          Are you a Chill Strategist, Meme Magician, or Altcoin Cowboy? Find your DeFi personality and unlock a strategy that fits your vibe.
+          Are you a Chill Strategist, Meme Magician, or Altcoin Cowboy? Find
+          your DeFi personality and unlock a strategy that fits your vibe.
         </p>
         <span className="inline-block bg-purple-100 text-purple-700 rounded-full px-4 py-2 text-base font-semibold mb-2">
           "Swap like your personality depends on it."
@@ -164,25 +168,45 @@ export default function QuizPage() {
         <div className="flex justify-between items-center mb-4">
           <button
             aria-label="Previous"
-            onClick={() => setCenterIndex(prev => getWrappedIndex(prev - 1))}
+            onClick={() => setCenterIndex((prev) => getWrappedIndex(prev - 1))}
             className="p-2 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 shadow transition"
           >
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           <div className="flex-1 flex justify-center">
-            <span className="text-lg font-semibold text-purple-700 mb-8">Swipe or use arrows to browse</span>
+            <span className="text-lg font-semibold text-purple-700 mb-8">
+              Swipe or use arrows to browse
+            </span>
           </div>
           <button
             aria-label="Next"
-            onClick={() => setCenterIndex(prev => getWrappedIndex(prev + 1))}
+            onClick={() => setCenterIndex((prev) => getWrappedIndex(prev + 1))}
             className="p-2 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 shadow transition"
           >
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
         <div
           className="flex items-stretch justify-center overflow-x-visible select-none relative"
-          style={{ touchAction: 'pan-x' }}
+          style={{ touchAction: "pan-x" }}
         >
           {[...Array(5)].map((_, i) => {
             const idx = getWrappedIndex(centerIndex - 2 + i);
@@ -193,25 +217,40 @@ export default function QuizPage() {
             return (
               <div
                 key={p.name}
-                className={`transition-all duration-300 ease-in-out flex flex-col items-center mx-2 w-64 h-80 rounded-3xl p-4 flex-shrink-0 max-w-xs min-w-[220px] ${isCenter
-                    ? 'z-20 scale-110 opacity-100 shadow-xl border-4 border-purple-400 bg-white' :
-                    isSide
-                      ? 'z-10 scale-95 opacity-70 shadow-md border-2 border-purple-200 bg-white' :
-                      'z-0 scale-90 opacity-40 pointer-events-none'
-                  }`}
+                className={`transition-all duration-300 ease-in-out flex flex-col items-center mx-2 w-64 h-80 rounded-3xl p-4 flex-shrink-0 max-w-xs min-w-[220px] ${
+                  isCenter
+                    ? "z-20 scale-110 opacity-100 shadow-xl border-4 border-purple-400 bg-white"
+                    : isSide
+                    ? "z-10 scale-95 opacity-70 shadow-md border-2 border-purple-200 bg-white"
+                    : "z-0 scale-90 opacity-40 pointer-events-none"
+                }`}
                 style={{
                   transform: isCenter
-                    ? 'scale(1.08)' : isSide
-                      ? 'scale(0.96)' : 'scale(0.92)',
-                  transition: 'transform 0.3s, opacity 0.3s',
+                    ? "scale(1.08)"
+                    : isSide
+                    ? "scale(0.96)"
+                    : "scale(0.92)",
+                  transition: "transform 0.3s, opacity 0.3s",
                 }}
               >
-                <Image src={p.imagePath} alt={p.name} width={120} height={120} className="mb-2 rounded-full border-2 border-purple-200 bg-purple-50" />
-                <h2 className="text-lg font-semibold text-center">{p.emoji} {p.name}</h2>
+                <Image
+                  src={p.imagePath}
+                  alt={p.name}
+                  width={120}
+                  height={120}
+                  className="mb-2 rounded-full border-2 border-purple-200 bg-purple-50"
+                />
+                <h2 className="text-lg font-semibold text-center">
+                  {p.emoji} {p.name}
+                </h2>
                 <p className="text-sm text-purple-500 text-center">{p.mbti}</p>
-                <p className="mt-1 text-sm text-center text-gray-600">{p.summary}</p>
+                <p className="mt-1 text-sm text-center text-gray-600">
+                  {p.summary}
+                </p>
                 {isCenter && (
-                  <Button variant="primary" className="w-full mt-4">Select</Button>
+                  <Button variant="primary" className="w-full mt-4">
+                    Select
+                  </Button>
                 )}
               </div>
             );
@@ -221,7 +260,9 @@ export default function QuizPage() {
 
       {/* How It Works Section */}
       <div className="w-full max-w-4xl mx-auto px-4 mb-10 mt-8 text-center">
-        <h3 className="text-xl font-bold text-purple-700 mb-8 font-sans">How it works</h3>
+        <h3 className="text-xl font-bold text-purple-700 mb-8 font-sans">
+          How it works
+        </h3>
         <div className="flex flex-col md:flex-row justify-center items-stretch">
           {[
             {
@@ -243,8 +284,13 @@ export default function QuizPage() {
               bg: "bg-green-200",
             },
           ].map(({ icon, title, desc, bg }, i) => (
-            <div key={i} className="flex flex-col items-center text-center max-w-xs mx-auto mr-12">
-              <div className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center mb-3 text-2xl`}>
+            <div
+              key={i}
+              className="flex flex-col items-center text-center max-w-xs mx-auto mr-12"
+            >
+              <div
+                className={`w-12 h-12 rounded-full ${bg} flex items-center justify-center mb-3 text-2xl`}
+              >
                 {icon}
               </div>
               <span className="font-semibold text-gray-800 mb-1">{title}</span>
@@ -254,14 +300,16 @@ export default function QuizPage() {
         </div>
       </div>
 
-
       {/* Secondary CTA */}
       <div className="w-full max-w-xl mx-auto text-center mt-8">
         <p className="text-lg text-gray-700 mb-4 font-sans">
-          Not sure which archetype fits you? Take our quick, playful quiz to discover your DeFi self!
+          Not sure which archetype fits you? Take our quick, playful quiz to
+          discover your DeFi self!
         </p>
         <Link href="/quiz/start">
-          <Button variant="secondary" className="text-lg px-8 py-3">Take the Quiz</Button>
+          <Button variant="secondary" className="text-lg px-8 py-3">
+            Take the Quiz
+          </Button>
         </Link>
       </div>
     </div>

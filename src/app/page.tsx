@@ -41,11 +41,11 @@ export default function Home() {
                 href="/quiz"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl inline-block"
               >
-                Get Started
+                Choose Personality
               </Link>
               <Link
-                href="/quiz"
-                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl inline-block"
+                href="/quiz/start"
+                className=" text-black px-8 py-4 rounded-lg text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl inline-block"
               >
                 Take the Quiz
               </Link>
@@ -96,10 +96,14 @@ export default function Home() {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white font-bold text-sm">CS</span>
-                </div>
+              <div className="flex flex-col justify-between items-center p-4 rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200">
+                <Image
+                  src={"/personality_types/The_Chill_Strategist.png"}
+                  width={200}
+                  height={200}
+                  alt="logo"
+                  className="rounded-full"
+                />
                 <h3 className="font-semibold text-gray-900 mb-1">
                   Chill Strategist
                 </h3>
@@ -108,10 +112,14 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200">
-                <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white font-bold text-sm">AC</span>
-                </div>
+              <div className="flex flex-col justify-between items-center p-4 rounded-lg bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200">
+                <Image
+                  src={"/personality_types/The_Altcoin_Cowboy.png"}
+                  width={200}
+                  height={200}
+                  alt="logo"
+                  className="rounded-full"
+                />
                 <h3 className="font-semibold text-gray-900 mb-1">
                   Altcoin Cowboy
                 </h3>
@@ -120,10 +128,14 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200">
-                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white font-bold text-sm">DD</span>
-                </div>
+              <div className="flex flex-col justify-between items-center p-4 rounded-lg bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200">
+                <Image
+                  src={"/personality_types/The_DeFi_Deacon.png"}
+                  width={200}
+                  height={200}
+                  alt="logo"
+                  className="rounded-full"
+                />
                 <h3 className="font-semibold text-gray-900 mb-1">
                   DeFi Deacon
                 </h3>

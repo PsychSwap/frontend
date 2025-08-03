@@ -12,6 +12,8 @@ export default function QuizStartPage() {
     Record<string, { value: number; impact: Partial<Record<MBTITrait, number>> }>
   >({});
   const [isFinished, setIsFinished] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
+
   const router = useRouter();
 
   const currentQuestion = quizQuestions[currentIndex];
@@ -32,6 +34,7 @@ export default function QuizStartPage() {
       setCurrentIndex(nextIndex);
     } else {
       setIsFinished(true);
+      setShowLoading(true);
     }
   };
 
@@ -53,11 +56,24 @@ export default function QuizStartPage() {
         (scores.T >= scores.F ? 'T' : 'F') +
         (scores.J >= scores.P ? 'J' : 'P');
 
-      router.push(`/quiz-results?mbti=${result}`);
+      // Simulate loading before pushing to results
+      setTimeout(() => {
+        router.push(`/quiz-results?mbti=${result}`);
+      }, 2000); // Show loading screen for 2 seconds
     }
   }, [isFinished, answers, router]);
 
   const progressPercent = Math.round((currentIndex / totalQuestions) * 100);
+
+  if (showLoading) {
+    return (
+      <main className="flex flex-col items-center justify-center h-screen bg-white text-gray-800 px-4">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-purple-600 mb-6" />
+        <h1 className="text-2xl font-semibold mb-2">Calculating your crypto alter ego...</h1>
+        <p className="text-sm text-gray-500">Consulting the blockchain spirits 🔮</p>
+      </main>
+    );
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-4 pt-10">
